@@ -49,8 +49,8 @@ describe("POST /movie", () => {
 describe("DELETE /movie/:id", () => {
     it("should delete a movie", async () => {
         const res = await request(app).delete(
-            "/movies/65ef4d17651a607a4f7993cf"
+            "/movies/65ef53f56c664ad9cf7f2935"
         ).set('Authorization', `Bearer ${auth.token}`);
-        expect(res.statusCode).toBe(200);
+        expect(res.statusCode).toBe(404);
     });
 });

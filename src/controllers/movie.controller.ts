@@ -56,8 +56,6 @@ export const updateMovie = async (req: Request, res: Response): Promise<Response
   try {
     const { id } = req.params;
     const { title, genre, rating, streamingLink } = req.body;
-
-    console.log(id);
     // Check if movie exists
     const existingMovie = await MovieModel.findById(id);
     if (!existingMovie) {

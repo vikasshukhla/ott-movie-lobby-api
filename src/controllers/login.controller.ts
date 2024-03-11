@@ -27,7 +27,7 @@ export const login = async (req: Request, res: Response): Promise<ResponseObject
         token = generateToken(payload);
 
     } catch (error) {
-        console.error('Error updating movie:', error);
+        console.error('Error generating token:', error);
         return res.status(500).json({ error: 'Internal server error' });
     }
     return res.status(200).send({ token });
