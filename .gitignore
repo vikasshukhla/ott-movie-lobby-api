@@ -3,4 +3,3 @@ dist
 dist-exe
 package-lock.json
 .vscode
-.env
