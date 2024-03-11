@@ -17,8 +17,6 @@ export const login = async (req: Request, res: Response): Promise<ResponseObject
         if (data.length != 0)
             adminUser = data[0].username;
 
-        console.log(adminUser);
-
         const user = { username: req.body.username };
         let payload: TokenPayload;
         if (user.username === adminUser)
@@ -26,9 +24,7 @@ export const login = async (req: Request, res: Response): Promise<ResponseObject
         else
             payload = { ...user, role: 'any' };
         // If authentication is successful, generate JWT token
-        console.log(123);
         token = generateToken(payload);
-        console.log(456);
 
     } catch (error) {
         console.error('Error updating movie:', error);

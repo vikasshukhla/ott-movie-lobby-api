@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { login } from '../../../src/controllers/login.controller';
 import UserModel from '../../../src/models/user.model';
 
-jest.mock('../../../src/middlewares/authMiddleware', () => ({
+jest.mock('../../../src/middlewares/auth.middleware', () => ({
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     generateToken: jest.fn((payload: any) => `mock-token-${payload.username}-${payload.role}`),
 }));
