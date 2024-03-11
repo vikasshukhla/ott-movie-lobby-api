@@ -18,6 +18,12 @@ from the root folder, run the following script
 
 This API allows users to interact with a collection of movies, including listing all movies, searching for movies, adding new movies, updating existing movie information, and deleting movies.
 
+## Authentication(for create/delete/update)
+These endpoints require authentication with a JWT token for admin role. To authenticate: On Postman follow below step
+- Call the /login api provided in postman collection to genrate the jwt token.
+- Copy the token from reponse
+- while making create/delete/update call, paste the token in "Authorization" -> Bearer Token
+
 ## Endpoints
 
 ### List all movies
@@ -35,8 +41,6 @@ Updates an existing movie's information (title, genre, rating, or streaming link
 ### Delete a movie
 Deletes a movie from the lobby. Requires the "admin" role.
 
-## Authentication
-Some endpoints require authentication with a JWT token. To authenticate, include a valid JWT token in the request headers with the key "Authorization".
 
 ## Sample Requests
 
@@ -70,6 +74,9 @@ Content-Type: application/json
   "rating": "8.5",
   "streamingLink": "https://example.com/movie"
 }
+{
+  "Authorization": "Bearer <Token>"
+}
 ```
 
 ### Update Movie
@@ -80,10 +87,16 @@ Content-Type: application/json
 {
   "title": "Updated Movie Title"
 }
+{
+  "Authorization": "Bearer <Token>"
+}
 ```
 ### Delete Movie
 ```http
 DELETE /movies/123
+{
+  "Authorization": "Bearer <Token>"
+}
 ```
 
 
