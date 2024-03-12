@@ -22,6 +22,8 @@ These endpoints require authentication with a JWT token for admin role. To authe
 - Call the /login api provided in postman collection to genrate the jwt token.
 - Copy the token from reponse
 - while making create/delete/update call, paste the token in "Authorization" -> Bearer Token
+- For now I have created one admin user in database and authorizing against that user only. Give {"username": "admin"} as body for /login for admin role.
+- For other username authorization will fail even though the token will be generated.
 
 ## Endpoints
 
